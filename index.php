@@ -1,10 +1,12 @@
 <?php
-require_once 'tag.php';
+	require_once 'Link.php';
+	echo (new Link)->setAttr('href', '/php/56-78/index.php')->setText('index')->show();
+	require_once 'HtmlList.php';
+	$list = new HtmlList('ul');
 
-	echo (new Tag('input'))->setAttr('name', 'name1')->open();
-	echo (new Tag('input'))->setAttr('name', 'name2')->open();
-	echo (new Tag('input'))
-		->setAttr('class', 'eee zzz kkk') // добавим 3 класса
-		->removeClass('zzz') // удалим класс 'zzz'
-		->open(); // выведет <input class="eee kkk">
+	echo $list
+		->addItem((new ListItem())->setText('item1'))
+		->addItem((new ListItem())->setText('item2'))
+		->addItem((new ListItem())->setText('item3'))
+		->show();
 ?>
